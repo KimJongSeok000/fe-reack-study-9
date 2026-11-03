@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 기본 베이스 설정 */
+        * {  /* 전체 선택자 -> 모든 요소에 기본 셋팅 적용 */
+            margin:0; /* 외부 여백 0 */
+            padding:0; /* 내부 여백 0 */
+            box-sizing: border-box;
+            /* 박스모델 사이즈 지정시 border 까지 사이즈로 지정 */
+        }
+
+        /*
+
+            display 속성
+                none         : 표시하지 않음(숨김). none 이후에 display 적용시 나타나게 할 수 있다.
+                block        : 한줄 다 차지. 사이즈(width, height) 적용 가능. 기본적으로 같이 배치 불가. 여백 적용가능
+                inline       : 컨텐츠 크기 만큼만 차지. 사이즈 적용 불가. 같은 줄 옆에 나란히 배치. 외부 여백 좌/우는 적용 가능하지만 상하가 안됨.
+                inline-block : 자체적으로는 block 처럼 작동 (사이즈, 여백).
+                                외부적으로는 inline 처럼 작동(다른 요소가 옆에 같은 줄에 배치 가능)
+        
+        */
+
+        .box {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .box1 {
+            /* div 태그 : 기본 설정 block */
+            /* width: 200px; */
+            /* height: 100px; */
+            /* border: 1px solid black; */
+
+            /* margin: 10px; */
+            /* padding: 10px; */
+
+            display: none;
+        }
+
+        .box2 {
+            /* div 태그 : 기본 설정 block */
+            /* width: 200px; */
+            /* height: 100px; */
+            /* border: 1px solid black; */
+
+            /* margin: 10px; */
+            /* padding: 10px; */
+
+            display: block;
+        }
+
+        .box3 {
+            /* div 태그 : 기본 설정 block */
+            /* width: 200px; */
+            /* height: 100px; */
+            /* border: 1px solid black; */
+
+            /* margin: 10px; */
+            /* padding: 10px; */
+
+            /* display: inline; */
+            display: inline-block
+        }
+
+        .span1 {
+            /* display: block; */
+            /* 기본이 inline인 span을 블럭 요소로 보이게 함. 사이즈 적용이 됨. */
+            display: inline;
+
+            width: 200px;
+            height: 100px;
+        
+        }
+
+        .parent {
+            width: 200px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+
+        .child {
+            width: 100px;
+            height: 50px;
+            border: 1px solid red;
+
+            display: none;
+        }
+        
+        .parent:hover .child {
+            display: block;        
+        }
+
+        .parent:hover .parent-span {
+            color: blue;
+            text-decoration: underline;
+        }
+
+</style>
+</head>
+<body>
+
+    <div class="box box1">box1</div>
+    <div class="box box2">box2</div>
+    <div class="box box3">box3</div>
+
+    <span class="span1">span1</span>
+    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id, sit at delectus est expedita natus reiciendis, ipsa architecto tenetur sunt totam exercitationem. Soluta, perspiciatis officia. Sint veniam fugit consequuntur quidem.</span>
+
+
+    <div class="parent">
+        <span class="parent-span">부모</span>
+        <br><br>
+        <div class="child">
+            자식
+        </div>
+
+    </div>
+</body>
+</html>
