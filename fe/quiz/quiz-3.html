@@ -6,28 +6,39 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
-    <p>사용자 ID : <input type="text"><br>
-    비밀 번호 : <input type="password">
-        <input type="button" value="완료"></p>
-        <select name="중국집메뉴">
-            <option value="짜장면">짜장면</option>
-            <option value="짬뽕" selected>짬뽕</option>            
-            <option value="탕수육">탕수육</option>
-        </select><br>
-        <label>짜장면<input type="checkbox" value="짜장면"></label>
-        <label>짬뽕<input type="checkbox" checked value="짬뽕"></label>
-        <label>탕수육<input type="checkbox" value="탕수육"></label><br>
-        이름 : <input type="text"><br>
-        암호 : <input type="password"><br>
-        자소서 : <textarea>이곳에 자기소개서 작성</textarea><br><br>
-        검색 : <input type="text">
-        <input type="button" value="Q1">
-        <input type="button" value="Q2"> <br>
-        submit 버튼 : <input type="submit" value="전송1">
-        <input type="submit" value="전송2"><br>
-        reset 버튼 : <input type="reset" value="리셋1">
-        <input type="reset" value="리셋2">
+    <form action="http://naver.com">
+    <!-- 접속을 하면서 해당 주소로 폼을 보낸다. 현 예시는 네이버 홈으로 간다. -->
+    <!-- submit이 발송했는지 여부 판단은 해당 주소로 이동했는가를 보면 된다. -->
+        <p>사용자 ID : <input type="text"><br>
+        비밀 번호 : <input type="password">
+            <input type="button" value="완료">
+            <!-- <button type="button">완료</button>도 동일한 역할 -->
+            <!-- <button> 완료 </button>는 버튼이 submit의 역할도 함. -->
+            </p>
+            <select>
+                <option value="짜장면">짜장면</option>
+                <option value="짬뽕" selected>짬뽕</option>            
+                <option value="탕수육">탕수육</option>
+            </select>
+            <br>
+            <label>짜장면<input type="checkbox"></label>
+            <label>짬뽕<input type="checkbox" checked></label>
+            <label>탕수육<input type="checkbox"></label><br>
+            이름 : <input type="text">
+            <br>
+            암호 : <input type="password">
+            <br>
+            자소서 : <textarea>이곳에 자기소개서 작성</textarea><br><br>
+            검색 : <input type="text">
+            <input type="button" value="Q1">
+            <button type="button">Q2</button>
+            <br>
+            submit 버튼 : <input type="submit" value="전송1">
+            <button>전송2</button>
+            <br>
+            reset 버튼 : <input type="reset" value="리셋1">
+            <button type="reset">리셋2</button>
+            <!-- 리셋은 폼을 리셋하고 서브밋은 폼을 제출하면서 페이지를 새로고침함. -->
 
         </form>
 </body>
