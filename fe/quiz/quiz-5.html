@@ -20,7 +20,7 @@
         이름 : <input type="text"> <br><br>
         <fieldset>
             <legend>학년선택</legend>
-            <table>
+            <ta>
                 <tr>
                     <th>번호</th>
                     <th>학년</th>
@@ -28,24 +28,26 @@
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>1학년</td>
-                    <td><input type="radio" name="grade"></td>
+                    <td><label for="gr1">1학년</label></td>
+                    <td><input type="radio" name="grade" id="gr1"></td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>2학년</td>
-                    <td><input type="radio" name="grade"></td>
+                    <td><label for="gr2">2학년</label></td>
+                    <td><input type="radio" name="grade" id="gr2"></td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>3학년</td>
-                    <td><input type="radio" name="grade"></td>
+                    <td><label for="gr3">3학년</label></td>
+                    <td><input type="radio" name="grade" id="gr3"></td>
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td>4학년</td>
-                    <td><input type="radio" name="grade"></td>
+                    <td><label for="gr4">4학년</label></td>
+                    <td><input type="radio" name="grade" id="gr4"></td>
                 </tr>
+                <!-- 3학년이랑 radio를 그냥 label로 묶으면 작동하지 않음 -->
+                <!-- 떨어져 있는 것은 input의 id와 label의 for를 통해 연결해야 함 -->
             </table>
         </fieldset>
         <br>
