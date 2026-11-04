@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    
+        * {                         
+            margin:0;               
+            padding:0;              
+            box-sizing: border-box;
+        }
         .container {
-        width: 500px;
-        margin: 0 auto;
-        margin-top: 50px;
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 50px;
         }
         .sbox {
-        width: 250px;
-        height: 100px;
-        display: inline-block;
+            width: 250px;
+            height: 100px;
+            display: inline-block;
         }
         .red-box {background-color: red;}
         .green-box {background-color: green;}
@@ -24,11 +28,16 @@
             background-color: blue;
         }
         .text {text-align: center;}
+
+        /* red-box/green-box 각각에 크기, 색상, 인라인블럭 설정하고 복붙해도 된다. */
+        /* 부모 width 500에 자식이 각각 250이니까 레드 그린박스 width를 50%로 해도 된다.*/
     </style>
 </head>
 <body>
     <div class="container">
         <div class="sbox red-box"></div><div class="sbox green-box"></div>
+        <!-- div간에 엔터나 띄어쓰기가 있으면 공백 한칸으로 인식해 inline 블럭 처리가 안될 수 있다. -->
+        <!-- 부모 width가 500이고 각각 250인데 공백이 자리를 차지하면 못오기 때문 -->
         <div class="text">글자가운데정렬</div>
         <div class="blue-box"></div>
     </div>
