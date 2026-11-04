@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 200px;
+            background-color: lightgray;
+            position: relative;
+        }
+
+        .menu {
+            height: 50px;
+            text-align: center;
+        }
+
+        .submenu {
+            background-color: aquamarine;
+            position: absolute;
+            top:50px;
+            left:0;
+            width:100%; /* 부모요소 크기 대비 상대 % */
+            
+            /* 주석처리 단축키
+                Ctrl+/
+                Alt+Shift+A 
+                Ctrl+K+C
+            */
+            display: none;
+        }
+        
+        .item {
+            height: 50px;
+        }
+        /* 부모의 height를 설정하지 않으면 부모의 height가 자식의 height를 따라간다 */
+        /* 이 경우 자식인 클래스  */
+
+        /* .menu:hover ~ .submenu {
+            display:block; 
+        }  */
+        /* 이 경우 menu에 hover를 걸면 밑에 나오는 submenu로 커서 이동시 submenu가 사라짐 */
+        /* container에 걸면 하위인 menu도 submenu도 hover에 포함된다. */
+        .container:hover .submenu{
+            display:block; 
+        }
+
+        .item:hover {
+            background-color: burlywood;
+            color:blue;
+            text-decoration: underline;
+            cursor:pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="menu">Menu</div>
+        <div class="submenu">
+            <div class="item">submenu item1</div>
+            <div class="item">submenu item2</div>
+            <div class="item">submenu item3</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
