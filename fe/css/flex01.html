@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>    
+        * {
+            margin:0;               
+            padding:0;              
+            box-sizing: border-box;
+        }
+
+    .item{
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+    }
+
+    .container {
+        display: flex;
+
+        /* 기본적으로 row상태지만 none <-> block마냥 지정해야 하는 경우가 있음 */
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        /* flex-flow: row wrap; 로 한번에 지정도 가능 */
+
+        /* 주축 정렬 */
+        justify-content: space-evenly;
+
+        /* 교차축 정렬 */
+
+        align-items: center; /* 아이템 단위로 정렬 */
+        /* align-content: center; 컨텐츠 단위로 정렬 */
+
+        height: 400px;
+        background-color: lightblue;
+        /* 부모의 height를 설정하지 않으면 자식을 따라가기때문에 설정한다.
+            그래서 보통 부모의 높이도 정하고 자식이 그에 맞게 꽉차게 만들고 정렬한다. */
+    }
+
+    .content-center{
+        /* text-align: center; */
+        /* margin: 0 auto; */
+        /* padding-top: 36px; */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item content-center">3</div>
+        <div class="item">4</div>
+        <div class="item content-center">5</div>
+        <div class="item content-center">6</div>
+    </div>
+</body>
+</html>
