@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            margin: 20px;
+        
+
+        /* 기존에 보유한 속성값 -> 변경될 속성값 */
+
+        /* 전환 효과를 주는 것이 transition */
+        transition-property: all; /* 너비, 두께, 색상등 개별 지정 가능 */
+        transition-duration: 3s; /* 전환하는 작업시간, 진행도 표현 됨 */
+        /* transition-delay: 2s; */
+
+            /*
+                transition 속성 위치
+                    기존 : 마우스 올릴때 작동, 내릴때도 작동
+                    hover : 마우스 올릴때 작동, 내릴때는 transition 작동안함
+            
+            
+             */
+        }
+
+        .box:hover{
+            width: 300px;
+            background-color: aquamarine;
+        }
+
+        .container:hover .box{
+            width: 300px;
+            background-color: aquamarine;
+        }
+    
+    </style>
+
+</head>
+<body>
+    <div class="box"></div>
+
+        <div class="container">
+            <div class="box" style="transition-timing-function: linear;"></div>
+            <div class="box" style="transition-timing-function: ease;"></div>
+            <div class="box" style="transition-timing-function: cubic-bezier(0.79, 0.26, 1, 0.24);"></div>
+            <div class="box" style="transition-timing-function: ease-in;"></div>
+            <div class="box" style="transition-timing-function: ease-out;"></div>
+            <div class="box" style="transition-timing-function: ease-in-out;"></div>
+        </div>
+
+</body>
+</html>
