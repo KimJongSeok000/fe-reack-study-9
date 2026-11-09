@@ -70,7 +70,7 @@ if (point < 50 && point >= 0)
     console.log("아쉽다")
 
 // 먼저 정상 범위를 필터링 하고 비교진행
-if (point >= 0 & point <= 100) { // 0 ~ 100이 보장됨
+if (point >= 0 && point <= 100) { // 0 ~ 100이 보장됨
     if (point >= 50)
         console.log("잘했다")
     else
