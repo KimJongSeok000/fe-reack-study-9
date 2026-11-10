@@ -75,6 +75,7 @@ function func04(n) {
 func04(10);
 
 let result = func04(5);
+// 변수 선언문이어도 = 표시가 있기 때문에 func04(5);가 실행되며 함수가 호출됨.
 console.log(result);
 console.log(func04(50));
 console.log(func04(123));
