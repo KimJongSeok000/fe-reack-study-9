@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <label class="like"> -->
+        <!-- 달식당 좋아요<span id="likeimo">♡</span> <span id="likecount">0</span> -->
+    <!-- </label>  -->
+    <p>달식당 <span onclick="increaseCnt()">좋아요♡</span> <span id="cnt">0</span></p>
+
+    <script>
+
+        const cnt = document.getElementById('cnt');
+
+        let count = 0;
+
+        function increaseCnt(){
+            console.log("increaseCnt 함수");
+            
+
+            // X let count = 0; - 함수 내부의 지역변수로 다시 함수로 들어오면 0으로 다시 선언하는게 됨.
+            // count++; 와 count = count + 1;는 같은 의미
+
+            // 1) 변수를 활용
+            // cnt.textContent = count;
+
+            // 전체를 영역으로 잡으면 textContent = '좋아요♡' + cnt;
+
+            // 2) 요소의 textContent를 접근해서 활용
+
+            console.log(cnt.textContent);
+
+            // cnt.textContent 는 문자로 인식해서 + 연산 올리면 "0" + 1
+            // 문자 인식 -> 숫자로 변환, 문자변환 String() 숫자변환 Number()
+            cnt.textContent = Number(cnt.textContent) + 1;
+
+        };
+
+        /*
+        let num = 0;
+        const likeEff = document.getElementsByClassName("like")[0];
+        const counting = document.getElementById('likecount');
+        likeEff.addEventListener('click', () => {
+            document.getElementById('likeimo').textContent = "♥";
+            num = num + 1;
+            counting.textContent = num;
+        });
+        */
+    </script>
+</body>
+
+</html>
