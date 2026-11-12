@@ -1,6 +1,6 @@
 // js 배열 관련 함수
 
-// const { useState } = require("react");
+// const { useState } = require("react"); 자동완성 오류 뜸.
 
 // 기본 배열
 let arr = [ 10, 20, 30, 40 ];
