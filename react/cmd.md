@@ -8,7 +8,7 @@ or
 npm run start
 
 ### VITE 프로젝트 생성
-npm creat vite@latest 프로젝트명
+npm create vite@latest 프로젝트명
 
 옵션
 React
