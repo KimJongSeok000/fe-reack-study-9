@@ -6,14 +6,19 @@ import './App.css'
 import Basic01 from './components/Basic01'
 import State01 from './components/State01'
 import Export01 from './components/Export01'
-import Productinfo from './quiz/Quiz00/ProductInfo'
+import Productinfo from './quiz/quiz00/ProductInfo.jsx'
+import Quiz01 from './quiz/quiz01/Quiz01.jsx'
+
+
+
 
 function App() {
   return (
     // <Basic01 />
     // <State01/>
     // <Export01/>
-    <Productinfo/>
+    // <Productinfo/>
+    <Quiz01/>
   )
 }
 export default App
