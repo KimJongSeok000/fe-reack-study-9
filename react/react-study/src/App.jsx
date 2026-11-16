@@ -9,6 +9,7 @@ import Export01 from './components/Export01'
 import Productinfo from './quiz/quiz00/ProductInfo.jsx'
 import Quiz01 from './quiz/quiz01/Quiz01.jsx'
 import State02 from './components/State02.jsx'
+import State03 from './components/State03.jsx'
 
 
 
@@ -20,7 +21,8 @@ function App() {
     // <Export01/>
     // <Productinfo/>
     // <Quiz01/>
-    <State02/>
+    // <State02/>
+    <State03/>
   )
 }
 export default App
