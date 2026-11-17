@@ -14,6 +14,7 @@ import Props01 from './components/Props01.jsx'
 import Quiz02 from './quiz/quiz02/Quiz02.jsx'
 import Props02 from './components/Props02.jsx'
 import Quiz03 from './quiz/quiz03/Quiz03.jsx'
+import NewsBlog from './newsblog/Newsblog.jsx'
 
 
 
@@ -30,7 +31,8 @@ function App() {
     // <Props01 />
     // <Quiz02/>
     // <Props02/>
-    <Quiz03/>
+    // <Quiz03/>
+    <NewsBlog/>
   )
 }
 export default App
