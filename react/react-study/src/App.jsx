@@ -11,6 +11,7 @@ import Quiz01 from './quiz/quiz01/Quiz01.jsx'
 import State02 from './components/State02.jsx'
 import State03 from './components/State03.jsx'
 import Props01 from './components/Props01.jsx'
+import Quiz02 from './quiz/quiz02/Quiz02.jsx'
 
 
 
@@ -24,7 +25,8 @@ function App() {
     // <Quiz01/>
     // <State02/>
     // <State03/>
-    <Props01 />
+    // <Props01 />
+    <Quiz02/>
   )
 }
 export default App
