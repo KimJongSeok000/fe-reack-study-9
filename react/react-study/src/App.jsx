@@ -14,7 +14,7 @@ import Props01 from './components/Props01.jsx'
 import Quiz02 from './quiz/quiz02/Quiz02.jsx'
 import Props02 from './components/Props02.jsx'
 import Quiz03 from './quiz/quiz03/Quiz03.jsx'
-import NewsBlog from './newsblog/Newsblog.jsx'
+import NewsBlog from './newsblog/NewsBlog.jsx'
 
 
 
