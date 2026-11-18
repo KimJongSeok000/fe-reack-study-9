@@ -18,6 +18,10 @@ function NewsBlog() {
 
     let [ modalFlag, setModalFlag ] = useState(false);
 
+    // 뉴스를 눌렀을때 Modal 창에 전달할 정보를 저장한 변수
+    let [ selectedTitle, setSelectedTitle ] = useState('');
+    let [ selectedLikeCount, setSelectedLikeCount ] = useState(0);
+
     return (
         <div>
             <div className="black-nav">
@@ -48,7 +52,8 @@ function NewsBlog() {
             {/* 퀴즈영역
             <div>
                 {news.map((val, index) => {
-                    let [ count, setCount ] = useState(0);
+                    let [ count, setCount ] = useState(0);  -  실행은 됬지만 오류가 날 가능성이 높다.
+                    해설본같이 단일 컴포넌트로 해결하려면 배열방식을 사용해야한다. 해설본 참조.
                     return (
                         <div className="post-list" key={val}>
                             <h4 onClick={() => {
@@ -87,7 +92,10 @@ function NewsBlog() {
                     return (
                         <div className="post-list">
                             <h4 onClick={() => {
-                                setModalFlag(!modalFlag);
+                                setSelectedTitle(item);
+                                setSelectedLikeCount(likeCountArr[ index ]);
+                                // 어떤 뉴스 눌렀는지 title, likeCount->state 변수저장 -> Modal Props 전달
+                                setModalFlag(!modalFlag); // 모달창 표시 여부
                             }}>{news[ index ]}
                                 <span onClick={(event) => {
                                     event.stopPropagation();
@@ -101,13 +109,23 @@ function NewsBlog() {
                 })
             }
 
+            <div>
+                <button onClick={() => {
+                    let temp = [ ...news ];
+                    temp[ 0 ] = "Today 긴급 속보!!!";
+                    setNews(temp);
+                }}>긴급제목변경</button>
+            </div>
+
 
 
             {
                 // modalFlag == true ? <Modal /> : null
             }
             {
-                modalFlag && <Modal />
+                modalFlag && <Modal title={selectedTitle} likeCount={selectedLikeCount}
+                    news={news} setNews={setNews} bgColor="lightblue"
+                />
             }
 
 
