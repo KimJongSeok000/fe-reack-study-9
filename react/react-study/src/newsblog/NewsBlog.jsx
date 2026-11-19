@@ -23,7 +23,7 @@ function NewsBlog() {
     let [ selectedLikeCount, setSelectedLikeCount ] = useState(0);
 
     // input 요소에서 입력된 값을 저장하는 용도
-    let [inputText, setInputText] = useState('');
+    let [ inputText, setInputText ] = useState('');
     return (
         <div>
             <div className="black-nav">
@@ -92,7 +92,7 @@ function NewsBlog() {
             {
                 news.map((item, index) => {
                     return (
-                        <div className="post-list">
+                        <div className="post-list" key={index}>
                             <h4 onClick={() => {
                                 setSelectedTitle(item);
                                 setSelectedLikeCount(likeCountArr[ index ]);
@@ -120,7 +120,7 @@ function NewsBlog() {
             </div>
 
             <div>
-                <input type="text" id="input_news_title" value={inputText} onChange={(event)=>{
+                <input type="text" id="input_news_title" value={inputText} onChange={(event) => {
                     // 매개변수 event : 키보드 이벤트 정보
                     // event.target 이벤트가 발생한 요소 접근
 
@@ -128,8 +128,8 @@ function NewsBlog() {
                     // -> value 값을 state 변수에 저장해둠
                     console.log(event.target.value);
                     setInputText(event.target.value);
-                }}/>
-                <button onClick={()=>{
+                }} />
+                <button onClick={() => {
                     /*
                         바닐라 js 스타일
                         const input_nt = document.getElementById("input_news_title")
@@ -139,11 +139,52 @@ function NewsBlog() {
                     */
 
                     // input에서 입력되어 저장된 state변수값-> news배열에 추가 등록 -> 재랜더링+화면에 표시
-                    let temp = [...news]
+                    /* 퀴즈 영역
+                    if (!inputText == '') {
+                        let temp = [ ...news ]
+                        temp.push(inputText);
+                        setNews(temp);
+                        setInputText(''); // 입력값 저장하는 inputText satate 변수에 값을 초기화
+                        likeCountArr.push(0);
+                    }
+                    */
+
+                    // 강의 내용
+                    // 1) 입력된 값 없이 발행되는 것 막기
+                    // 사전 필터링 방식
+                    // 문자 앞뒤에 있는 공백(띄어쓰기) 제거
+                    // 띄어쓰기만 있을때 등록을 방지
+                    // trim() - 문자열 앞뒤에 있는 공백을 제거
+                    // " abcd ".trim() -> "abcd"
+                    inputText = inputText.trim(); // =으로 저장하지않으면 해당 시점에만 앞뒤 공백 제거
+
+                    if (inputText == '') {
+                        alert("값을 입력하세요") // 브라우저한테 경고창을 띄우게 하는 함수.
+                        setInputText(''); // 입력칸 초기화(띄어쓰기 밖에 없거나 아무것도 입력 안한상태이므로 값(텍스트) 저장할 필요없음)
+                        return;
+                    }
+                    let temp = [ ...news ]
                     temp.push(inputText);
                     setNews(temp);
+                    setInputText('');
 
-                    setInputText(''); // 입력값 저장하는 inputText satate 변수에 값을 초기화
+                    // 2. 글 추가시 좋아요 숫자 작동문제 해결
+                    // 기존에 뉴스 제목 배열만 추가되어 문제 발생
+                    // 뉴스 제목 추가할때 그 뉴스의 좋아요 갯수에 해당하는 likeCountArr도 추가
+                    // likeCountArr.push(0); - 근처 조건으로 랜더링 되긴하지만 확실하지 않고 확인이 어렵다.
+                    let temp2 = [ ...likeCountArr ]
+                    temp2.push(0);
+                    setLikeCountArr(temp2);
+
+
+                    /*
+                    if (inputText != '') {
+                        let temp = [ ...news ]
+                        temp.push(inputText);
+                        setNews(temp);
+                        setInputText(''); // 입력값 저장하는 inputText satate 변수에 값을 초기화
+                    }*/
+
                 }}>뉴스발행</button>
             </div>
 

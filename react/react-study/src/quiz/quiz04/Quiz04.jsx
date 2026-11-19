@@ -1,4 +1,4 @@
-import { use, useState } from 'react';
+import { useState } from 'react';
 import './Quiz04.css';
 
 function Quiz04() {
