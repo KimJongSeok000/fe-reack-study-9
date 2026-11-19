@@ -92,7 +92,7 @@ function NewsBlog() {
             {
                 news.map((item, index) => {
                     return (
-                        <div className="post-list" key={index}>
+                        <div className="post-list">
                             <h4 onClick={() => {
                                 setSelectedTitle(item);
                                 setSelectedLikeCount(likeCountArr[ index ]);
@@ -106,6 +106,46 @@ function NewsBlog() {
                                     setLikeCountArr(temp);
                                 }}>♥</span> {likeCountArr[ index ]}</h4>
                             <p>내용</p>
+                            {/* 퀴즈 영역
+                            <button onClick={() => {
+                                let temp2 = [ ...news ];
+                                temp2.splice(index, 1);
+                                setNews(temp2);
+                                let temp3 = [ ...likeCountArr ];
+                                temp3.splice(index, 1);
+                                setLikeCountArr(temp3);
+                            }}>삭제</button>*/}
+                            {/* 강의내용 */}
+                            <button onClick={() => {
+                                // 삭제 버튼을 누르면 눌린 대상을 삭제.
+                                // 배열 데이터 기반으로 화면에 표시 구조.
+                                // 배열 내부에 현재 삭제를 누른 대상 index 위치에 있는 값을 제거
+                                // 몇번째 index 위치의 삭제를 누를것인가?
+                                // 위에 map 반복문에 idext값이 이미 존재한다.
+                                // 1) splice 함수 활용 - 배열.splice(idex, 삭제 개수, 추가할 값)
+                                // let temp = [ ...news ]; // likeCount의 temp 변수명은 함수 내부라 temp 변수명 사용가능
+                                // temp.slice(index, 1); // index 위치값 제제
+                                // setNews(temp);
+                                // let temp2 = [ ...likeCountArr ];
+                                // temp2.splice(index, 1);
+                                // setLikeCountArr(temp2);
+                                // likeCountArr를 변경하지 않으면 likeCount값이 배열에 그대로 남아있어 뉴스 삭제/추가시 좋아요 값이 맞지않음.
+
+                                // 2)filter 방식
+                                // return 조건이 true인 케이스만 모아서 배열
+                                // index:2 요소 삭제버튼 -> 0!=2 1!=2 2!=2 3!=3
+                                // 현재 index != 삭제누른 index
+                                let temp = [ ...news ];
+                                temp = temp.filter((value, idx) => {
+                                    return idx != index; // return이 true인 값만 모은다.
+                                })
+                                console.log(temp);
+                                setNews(temp);
+
+                                setLikeCountArr(likeCountArr.filter((_, idx) => idx != index));
+                                // 한줄로 간결하게 한 방식. 위의 형태에서 불필요한 부분을 생략, 압축함.
+
+                            }}>식제</button>
                         </div>
                     )
                 })
