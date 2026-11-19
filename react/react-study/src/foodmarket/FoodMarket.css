@@ -1,0 +1,7 @@
+
+.main-bg{
+    height: 300px;
+    background-image: url('./img/banner_bg.jpg');
+    background-size: cover; /*사이즈에 맞게 축소시켜줌*/
+    background-position: center; /*가운데 부분을 보여줌*/
+}
