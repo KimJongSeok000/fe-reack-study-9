@@ -2,9 +2,12 @@ import { Button, Card } from "react-bootstrap";
 import food1 from '../img/food1.jpg';
 import food2 from '../img/food2.jpg';
 import food3 from '../img/food3.jpg';
+import { useNavigate } from "react-router";
 
 // props 라고 받으면 props.food.id 형태로 . 을 계속 붙여야함
 function FoodCard({ food, foods, index }) {
+
+    let navigate = useNavigate();
     return (
         <Card style={{ width: '18rem' }}>
             {/* <Card.Img variant="top" src={food1} /> */}
@@ -24,7 +27,11 @@ function FoodCard({ food, foods, index }) {
                 <Card.Text>
                     {food.price}
                 </Card.Text>
-                <Button variant="primary">상세보기</Button>
+                <Button variant="primary" onClick={() => {
+                    // 상품 상세페이지 주소로 변환
+                    // /detail/:id
+                    navigate("/detail/"+food.id);
+                }}>상세보기</Button>
             </Card.Body>
         </Card>
     )
