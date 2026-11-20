@@ -18,6 +18,7 @@ import NewsBlog from './newsblog/NewsBlog.jsx'
 import Quiz04 from './quiz/quiz04/Quiz04.jsx'
 import Quiz05 from './quiz/quiz05/Quiz05.jsx'
 import FoodMarket from './foodmarket/FoodMarket.jsx'
+import Quiz06 from './quiz/quiz06/Quiz06.jsx'
 
 
 
@@ -38,7 +39,8 @@ function App() {
     // <NewsBlog/>
     // <Quiz04/>
     // <Quiz05/>
-    <FoodMarket/>
+    // <FoodMarket/>
+    <Quiz06/>
   )
 }
 export default App
