@@ -12,23 +12,56 @@ import food3 from './img/food3.jpg';
 import foodsData from "./data/foodsData";
 import { useState } from "react";
 import FoodCard from "./components/FoodCard";
+import { Routes, Route, Link, useNavigate } from "react-router";
+import CustomerService from "./pages/CustomerService";
+import Home from "./pages/Home";
 
 function FoodMarket() {
 
     let [ foods, setFoods ] = useState(foodsData);
 
+    /*
+        url주소(접속경로) 이동 - 페이지 새로고침, 새로운 페이지로 이동
+        <a href="경로"> - html방식
+        location.href = "경로" - js방식
+
+        react-router 이동
+        현재 html 페이지를 유지하면서 url 주소 표기가 바뀌면 그 주소일때 보여주는 화면요소로 전환(지웠다가 다시 그리기)
+        Link to=주소 - 브라우저 주소를 이동하고 브라우저가 바뀐 주소를 인식하여 그게 맞게 보여줌. html의 a태그같이 작성 및 출력
+        navigate(주소)
+    */
+
+    let navigate = useNavigate();
+    // useNavigate를 import하고 navigate를 선언하여 사용.
+
     return (
         <div>
             <Navbar bg="light" data-bs-theme="light">
                 <Container>
-                    <Navbar.Brand href="#home">FoodMarket</Navbar.Brand>
+                    {/* <Navbar.Brand onClick={() => { location.href = "/" }}>FoodMarket</Navbar.Brand> */}
+                    <Navbar.Brand onClick={() => { navigate("/") }}>FoodMarket</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        <Nav.Link href="#home"><Link to="/">Home</Link></Nav.Link>
+                        <Nav.Link onClick={() => { navigate("/detail") }}>Food Detail(상세)</Nav.Link>
+                        <Nav.Link onClick={() => { navigate("/info") }}>Info</Nav.Link>
+                        <Nav.Link onClick={() => { navigate("/help") }}>고객센터</Nav.Link>
+
+                        {/* <Nav.Link><Link to="/info">고객센터</Link></Nav.Link>
+                        <Nav.Link href="/help">고객센터</Nav.Link> */}
+
                     </Nav>
                 </Container>
             </Navbar>
+
+            <Routes>
+                <Route path="/" element={<Home foods={foods} />} />
+                <Route path="/help" element={<CustomerService />} />
+                <Route path="/detail" element={<div><h1>detail page</h1></div>} />
+                <Route path="/info" element={<div><h1>info page</h1></div>} />
+                <Route path="/test" element={<div><h1>이곳은 테스트</h1></div>} />
+                <Route path="/*" element={<div><h1>잘못된 접근입니다. 경로를 확인하세요.</h1></div>} />
+                {/* *는 CSS에서와 같이 all이라는 의미. */}
+            </Routes>
 
             {/* 
                 이미지 사용 (연결)
@@ -72,20 +105,6 @@ function FoodMarket() {
 
             {/* <div className="main-bg" style={{ backgroundImage: 'url(' + banner_bg + ')' }}></div> */}
 
-            <div className="main-bg"></div>
-            <Container>
-                <Row>
-                    {
-                        foods.map((food, index) => {
-                            return (
-                                <Col md={4} sm={4} xxl={3}>
-                                    <FoodCard food={food} foods={foods} index={index}/>
-                                </Col>
-                            )
-                        })
-                    }
-                </Row>
-            </Container>
 
             {/* bootstrap 한줄 기준 : 12 */}
             {/* <Container>
@@ -137,9 +156,6 @@ function FoodMarket() {
                     </Col>
                 </Row>
             </Container> */}
-
-
-
 
 
             {/*<Button variant="primary">Primary</Button>

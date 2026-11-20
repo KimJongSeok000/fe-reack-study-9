@@ -39,8 +39,8 @@ function App() {
     // <NewsBlog/>
     // <Quiz04/>
     // <Quiz05/>
-    // <FoodMarket/>
-    <Quiz06/>
+    <FoodMarket/>
+    // <Quiz06/>
   )
 }
 export default App
